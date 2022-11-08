@@ -1,0 +1,18 @@
+#lineaDeTiempo {
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+#lineaDeTiempo .tiempoEmpieza,
+#lineaDeTiempo .tiempoTermina {
+    font-weight: bold;
+}
+#lineaDeTiempo .disponibilidadTotal {
+    height: 300px;
+    width: 10px;
+    background-color: red;
+
+    border-radius: 15px;
+    position: relative;
+}

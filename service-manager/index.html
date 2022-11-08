@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- bootstrap  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./index.css">
+    
+    <title>Proyecto Ninja</title>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center bg-dark text-light" style="height: 20vh;">
+        <h1 class="container-fluid">
+            Ugerit servicios
+            <small style="font-size: 0.9rem;">Simulator</small>
+        </h1>
+    </div>
+
+    <div class="container py-3">
+        <h5>
+            1. Primero determina la disponibilidad del negocio y agrega los servicios:
+            <span class="text-info">Define el horario y agrega servicios</span>
+        </h5>
+        <hr>
+        <div class="row w-100 mx-auto">
+            <div class="col-12 col-sm-6 p-0 pr-sm-4">
+                <p class="font-weight-bold">Determina el horario:</p>
+                <form id="horarioNegocio">
+                    <div class="d-flex justify-content-around mb-2">
+                        <input type="time" name="tiempoEmpieza" id="tiempoEmpieza" value="">
+                        <input type="time" name="tiempoTermina" id="tiempoTermina" value="">
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-sm-6 p-0">
+                <form id="nuevoServicio" class="mt-4 mt-sm-0">
+                    <p class="font-weight-bold">Agrega tus servicios:</p>
+                    <div class="form-group">
+                      <input class="form-control rounded" type="text" name="nombreServicio" id="nombreServicio" placeholder="Nombre del servicio">
+                    </div>
+                    <div class="form-group">
+                      <input class="rounded form-control" type="text" name="descripServicio" id="descripServicio" placeholder="Descripcion del servicio">
+                    </div>
+                    <div class="form-group">
+                      <input class="rounded form-control" type="number" name="precioServicio" id="precioServicio" placeholder="Precio del servicio $0.00">
+                    </div>
+                    <div class="form-group">
+                      <input class="rounded form-control" type="number" name="tiempoServicio" id="tiempoServicio" placeholder="Cuánto demora el servicio (ej: 40 min)">
+                      <small class="pl-2 text-muted d-block text-right">Especifica en minutos</small>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block">Agregar</button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+            <h5>
+                2. Ahora Despues de agregados los servicios, Imagina que eres el cliente:
+                <span class="text-info">Selecciona los servicios</span>
+            </h5>
+        <hr>
+        <br>
+        <br>
+        <p class="font-weight-bold">Selecciona los servicios que quieres adquirir</p>
+        <div id="serviciosList" class="row w-100 mx-auto">
+            <p class="text-muted text-center w-100">No hay servicios agregados</p>
+        </div>
+        <br>
+        <br>
+        <hr>
+            <h5>
+                3. Luego de seleccionados los servicios,
+                <span class="text-info">selecciona cuándo los quieres:</span>
+            </h5>
+        <hr>
+        <br>
+        <br>
+
+        <div class="position-relative">
+            <p class="text-muted position-absolute w-100 text-center">
+                No hay disponibles
+            </p>
+            <div id="lineaDeTiempo" class="mx-auto" style="max-width: 300px;">
+                <div class="btn btn-info btn-block">9:00 am</div>
+                <div class="btn btn-info btn-block">9:10 am</div>
+                <div class="btn btn-info btn-block">9:20 am</div>
+                <div class="btn btn-info btn-block">9:30 am</div>
+                <div class="btn btn-info btn-block">9:40 am</div>
+                <div class="btn btn-info btn-block">9:50 am</div>
+                <div class="btn btn-info btn-block">10:00 am</div>
+            </div>
+        </div>
+        <div class="fixed-bottom d-flex justify-content-center">
+            <button type="button" id="agendar" class="btn btn-success btn-block mx-auto mt-3 py-3 rounded-0">
+                Confirmar
+            </button>
+        </div>
+
+        <br>
+        <br>
+        <hr>
+            <h5>
+                4. Visualiza las reservaciones,
+                <span class="text-info">Esta es tu agenda de trabajo:</span>
+            </h5>
+        <hr>
+        <br>
+        <br>
+
+        <div id="agenda" class="mx-auto" style="max-width: 300px;"></div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+
+
+
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+    <!-- Momentjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
